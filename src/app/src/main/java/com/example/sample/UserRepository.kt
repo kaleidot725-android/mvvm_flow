@@ -13,6 +13,18 @@ class UserRepository(private val userDao: UserDao) {
         return userDao.getAll()
     }
 
+    fun getUserSortedByFirstName() = getUsers().map {
+        it -> it.sortedBy { it.firstName }
+    }
+
+    fun getUserSortedByLastName() = getUsers().map {
+        it -> it.sortedBy { it.lastName }
+    }
+
+    fun getUserSortedByAge() = getUsers().map {
+        it -> it.sortedBy { it.age }
+    }
+
     companion object {
         private val SAMPLE_USERS = listOf(
             User(1, "A", "G", 10),

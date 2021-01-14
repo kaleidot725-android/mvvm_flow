@@ -8,9 +8,9 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(private val repo: UserRepository): ViewModel() {
     val users: Flow<List<User>> = repo.getUsers()
-    val usersSortedByFirstName: Flow<List<User>> = users.map { it -> it.sortedBy { it.firstName } }
-    val usersSortedByLastName: Flow<List<User>> = users.map { it -> it.sortedBy { it.lastName } }
-    val usersSortedByAge: Flow<List<User>> = users.map { it -> it.sortedBy{ it.lastName } }
+    val usersSortedByFirstName: Flow<List<User>> = repo.getUserSortedByFirstName()
+    val usersSortedByLastName: Flow<List<User>> = repo.getUserSortedByLastName()
+    val usersSortedByAge: Flow<List<User>> = repo.getUserSortedByAge()
 
     init {
         viewModelScope.launch { repo.fetchData() }
