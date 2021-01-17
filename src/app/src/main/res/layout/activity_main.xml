@@ -11,10 +11,31 @@
         tools:context=".ui.MainActivity">
 
         <TextView
-            android:id="@+id/main_text"
+            android:id="@+id/one_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="main"
+            android:text="one"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:id="@+id/two_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="two"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:id="@+id/three_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="three"
+            android:layout_margin="16dp"/>
+
+        <TextView
+            android:id="@+id/four_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="four"
             android:layout_margin="16dp"/>
     </LinearLayout>
 </layout>
