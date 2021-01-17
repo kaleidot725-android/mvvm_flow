@@ -2,17 +2,19 @@ package com.example.sample
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repo: UserRepository): ViewModel() {
-    val users: Flow<List<User>> = repo.getUsers()
-    val usersSortedByFirstName: Flow<List<User>> = repo.getUserSortedByFirstName()
-    val usersSortedByLastName: Flow<List<User>> = repo.getUserSortedByLastName()
-    val usersSortedByAge: Flow<List<User>> = repo.getUserSortedByAge()
+    private val _users: MutableStateFlow<List<User>> = MutableStateFlow(listOf())
+    val users: StateFlow<List<User>> = _users
 
     init {
-        viewModelScope.launch { repo.fetchData() }
+        viewModelScope.launch {
+            repo.fetchData()
+            repo.users.collect { data -> _users.value = data }
+        }
     }
 }

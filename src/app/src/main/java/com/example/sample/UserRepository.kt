@@ -9,21 +9,7 @@ class UserRepository(private val userDao: UserDao) {
         userDao.insertAll(SAMPLE_USERS)
     }
 
-    fun getUsers(): Flow<List<User>> {
-        return userDao.getAll()
-    }
-
-    fun getUserSortedByFirstName() = getUsers().map {
-        it -> it.sortedBy { it.firstName }
-    }
-
-    fun getUserSortedByLastName() = getUsers().map {
-        it -> it.sortedBy { it.lastName }
-    }
-
-    fun getUserSortedByAge() = getUsers().map {
-        it -> it.sortedBy { it.age }
-    }
+    val users: Flow<List<User>> = userDao.getAll()
 
     companion object {
         private val SAMPLE_USERS = listOf(

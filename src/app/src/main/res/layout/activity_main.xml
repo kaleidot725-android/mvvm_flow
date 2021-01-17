@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <data>
-        <variable
-            name="viewModel"
-            type="com.example.sample.MainViewModel" />
-    </data>
-
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,24 +14,7 @@
             android:id="@+id/main_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"/>
-
-        <TextView
-            android:id="@+id/sort_first_name_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"/>
-
-        <TextView
-            android:id="@+id/sort_last_name_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"/>
-
-        <TextView
-            android:id="@+id/sort_age_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:text="main"
             android:layout_margin="16dp"/>
     </LinearLayout>
 </layout>
